@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    public Player CurrentPlayer;
+    public Player CurrentPlayer { get; private set; }
 
 
     private void Awake()
