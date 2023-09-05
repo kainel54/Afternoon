@@ -5,8 +5,9 @@ using UnityEngine.Pool;
 
 public class PoolManager : MonoSingleton<PoolManager>
 {
+    // ObjectInfo : 풀링을 할 오브젝트 정보
+    // objectName : 오브젝트 ID, prefab : 프리팹, count : 만들 갯수
     [System.Serializable]
-
     private class ObjectInfo
     {
         public string objectName;
@@ -20,29 +21,32 @@ public class PoolManager : MonoSingleton<PoolManager>
     private ObjectInfo[] objectInfos = null;
 
     private string objectName;
+
     private Dictionary<string, IObjectPool<GameObject>> objectPoolDictionary = new Dictionary<string, IObjectPool<GameObject>>();
-    private Dictionary<string, GameObject> gameObjectDitionary = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> gameObjectDictionary = new Dictionary<string, GameObject>();
 
     private void Start()
     {
-        OnInit();
+        Init();
     }
 
-    private void OnInit()
+    private void Init()
     {
         IsReady = false;
 
         for (int idx = 0; idx < objectInfos.Length; idx++)
         {
-            IObjectPool<GameObject> pool = new ObjectPool<GameObject>(CreateNewObject, OnGetPoolObject, OnRelease, OndestroyPoolObject, true, objectInfos[idx].count);
-            if (gameObjectDitionary.ContainsKey(objectInfos[idx].objectName))
+            IObjectPool<GameObject> pool = new ObjectPool<GameObject>(CreateNewObject, OnGetPoolObject, OnReleasePoolObject, OnDestroyPoolObject, true, objectInfos[idx].count, objectInfos[idx].count);
+
+            if (gameObjectDictionary.ContainsKey(objectInfos[idx].objectName))
             {
                 Debug.LogFormat("{0} : Already assigned.", objectInfos[idx].objectName);
             }
 
-            gameObjectDitionary.Add(objectInfos[idx].objectName, objectInfos[idx].prefab);
+            gameObjectDictionary.Add(objectInfos[idx].objectName, objectInfos[idx].prefab);
             objectPoolDictionary.Add(objectInfos[idx].objectName, pool);
-            
+
+            // count만큼 생성해놓고 일단 회수
             for (int i = 0; i < objectInfos[idx].count; i++)
             {
                 objectName = objectInfos[idx].objectName;
@@ -50,15 +54,17 @@ public class PoolManager : MonoSingleton<PoolManager>
                 poolable.pool.Release(poolable.gameObject);
             }
         }
+
         Debug.Log("[PoolManager] Ready to Pool");
+        IsReady = true;
     }
 
-    private void OndestroyPoolObject(GameObject obj)
+    private void OnDestroyPoolObject(GameObject obj)
     {
         Destroy(obj);
     }
 
-    private void OnRelease(GameObject obj)
+    private void OnReleasePoolObject(GameObject obj)
     {
         obj.SetActive(false);
     }
@@ -70,7 +76,7 @@ public class PoolManager : MonoSingleton<PoolManager>
 
     private GameObject CreateNewObject()
     {
-        GameObject newObject = Instantiate(gameObjectDitionary[objectName]);
+        GameObject newObject = Instantiate(gameObjectDictionary[objectName]);
         newObject.GetComponent<Poolable>().pool = objectPoolDictionary[objectName];
         return newObject;
     }
@@ -78,9 +84,9 @@ public class PoolManager : MonoSingleton<PoolManager>
     public GameObject Spawn(string name)
     {
         objectName = name;
-        if(!gameObjectDitionary.ContainsKey(objectName))
+        if (!gameObjectDictionary.ContainsKey(name))
         {
-            Debug.LogFormat("{0} : Key not found in Pool", name);
+            Debug.LogFormat("{0} : Key not found in Pool.", name);
             return null;
         }
 

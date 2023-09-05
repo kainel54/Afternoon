@@ -279,6 +279,9 @@ MonoBehaviour:
   - objectName: Enemy
     prefab: {fileID: 4619942935681531423, guid: 2873634a6627bf64daf2ced14c7a9307, type: 3}
     count: 10
+  - objectName: Whip
+    prefab: {fileID: 2700653418668616397, guid: e9e57ac6adc4a2046a0dd0584e90d3b5, type: 3}
+    count: 1
 --- !u!1 &181260055
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181260056}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (6)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -319,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250044073}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (9)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -477,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 574905832}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (8)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -16800,7 +16803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 747115183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (7)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -49416,7 +49419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833273260}
   - component: {fileID: 833273261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49475,7 +49478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912309126}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (2)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -49506,7 +49509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 929262991}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (12)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -49538,7 +49541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043296437}
   - component: {fileID: 1043296438}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Area
   m_TagString: Area
   m_Icon: {fileID: 0}
@@ -49614,7 +49617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1047253753}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (5)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -49645,7 +49648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052777400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (4)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -65968,7 +65971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129497584}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (13)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -65999,7 +66002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361763098}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (14)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66030,7 +66033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1378968484}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (3)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66061,7 +66064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459377060}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (1)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66177,7 +66180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543484292}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (10)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66208,7 +66211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1544177929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (11)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66287,7 +66290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759504233}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66318,7 +66321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1811996763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (15)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -66478,7 +66481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6984257154326948328}
   - component: {fileID: 8419262897488306809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66495,7 +66498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2202947204736327065}
   - component: {fileID: 4681438187863552996}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66532,7 +66535,7 @@ GameObject:
   - component: {fileID: 4484833805080012500}
   - component: {fileID: 4484833805080012499}
   - component: {fileID: 4484833805080012502}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66549,7 +66552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1545537696475551361}
   - component: {fileID: 6772586919561833764}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66728,6 +66731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  coolTime: 1.35
 --- !u!50 &4484833805080012500
 Rigidbody2D:
   serializedVersion: 4
@@ -66948,7 +66952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6451442046251744967}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66980,7 +66984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6263390693513471205}
   - component: {fileID: 4160828744714872329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66997,7 +67001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5373291871221154688}
   - component: {fileID: 4785384992438529887}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67066,7 +67070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3100440824534984209}
   - component: {fileID: 7317044947202879942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67083,7 +67087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1354505567676678683}
   - component: {fileID: 1517198631437347785}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67100,7 +67104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8290616829109547725}
   - component: {fileID: 5860695145224189774}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BackHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67307,7 +67311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8105854654011929557}
   - component: {fileID: 8606373449778581651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67394,7 +67398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611336167411646756}
   - component: {fileID: 6466038734422949924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67411,7 +67415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 971541122459134614}
   - component: {fileID: 3659134420444259860}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67443,7 +67447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4837733185904172702}
   - component: {fileID: 5502022902245765565}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Whip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
