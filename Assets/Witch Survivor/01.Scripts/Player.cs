@@ -30,14 +30,19 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        animator.SetFloat("Speed",moveDirection.magnitude);
+        animator.SetFloat("Speed", moveDirection.magnitude);
 
-        float xScale = moveDirection.x < 0 ? -1f: 1f ;
+        if (moveDirection.magnitude > speed) { }
+
+    }
+
+    private void LateUpdate()
+    {
+        rigid2d.MovePosition(rigid2d.position + moveDirection * speed * Time.fixedDeltaTime);
+        if (moveDirection.x == 0) return;
+
+        float xScale = moveDirection.x < 0 ? -1f : 1f;
         transform.localScale = new Vector3(xScale, 1f, 1f);
-
-        if(moveDirection.magnitude > speed) { }
-
-        rigid2d.MovePosition(rigid2d.position + moveDirection*speed * Time.fixedDeltaTime);
     }
 
     private void OnMove(InputValue value)
@@ -49,6 +54,10 @@ public class Player : MonoBehaviour
     {
         GameObject whip = PoolManager.Instance.Spawn("Whip");
         whip.transform.SetParent(transform);
+        whip.transform.localPosition = Vector3.zero;
+        whip.transform.localScale = Vector3.one;
     }
+
+
     
 }

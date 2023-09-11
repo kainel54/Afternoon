@@ -7,6 +7,9 @@ public class Poolable : MonoBehaviour
 
     public virtual void Release()
     {
-        pool.Release(gameObject);
+        if(gameObject.activeInHierarchy)
+        {
+            pool.Release(gameObject);
+        }
     }
 }

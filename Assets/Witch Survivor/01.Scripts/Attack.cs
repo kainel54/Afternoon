@@ -5,24 +5,26 @@ using UnityEngine.Experimental.Playables;
 
 public class Attack : Poolable
 {
-    [SerializeField]
-    private float atk = 3;
-    [SerializeField]
-    private float atkDelay = 0.5f;
-
+    public WeaponData weaponData;
     private void OnEnable()
     {
-        Invoke("Release",atkDelay);
+        Invoke("Release",weaponData.atkRemain);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void Release()
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            Enemy enemy = collision.GetComponent<Enemy>();
-            enemy.Damage(atk);
-        }
+        transform.parent = null;
+        transform.localScale = Vector3.one;
+        transform.localPosition = Vector3.zero;
+        base.Release();
     }
 
-
+    public void SetWeaponData(WeaponData newData)
+    {
+        weaponData = new WeaponData();
+        weaponData.atkDamage = 3f;
+        weaponData.atkRemain = 0.5f;
+        weaponData.coolTime = 1.35f;
+        weaponData = newData;
+    }
 }
