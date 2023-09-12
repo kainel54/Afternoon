@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public Player CurrentPlayer { get; private set; }
+    public Spawner CurrentSpawner { get; private set; }
 
 
     private void Awake()
     {
         CurrentPlayer = FindObjectOfType<Player>();
+        CurrentSpawner = FindObjectOfType<Spawner>();
     }
 }

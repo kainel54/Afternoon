@@ -67,6 +67,7 @@ public class PoolManager : MonoSingleton<PoolManager>
     private void OnReleasePoolObject(GameObject obj)
     {
         obj.SetActive(false);
+        
     }
 
     private void OnGetPoolObject(GameObject obj)

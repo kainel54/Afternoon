@@ -10,6 +10,7 @@ public class Poolable : MonoBehaviour
         if(gameObject.activeInHierarchy)
         {
             pool.Release(gameObject);
+            
         }
     }
 }

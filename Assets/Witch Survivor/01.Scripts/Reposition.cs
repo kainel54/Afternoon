@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +18,7 @@ public class Reposition : MonoBehaviour
             return;
         }
         if (GameManager.Instance.CurrentPlayer == null) return;
+        if(GameManager.Instance == null) return;
 
         Vector3 playerPosition = GameManager.Instance.CurrentPlayer.transform.position;
         Vector3 mapPosition = transform.position;
@@ -45,6 +45,10 @@ public class Reposition : MonoBehaviour
                     transform.Translate(Vector3.right * dirX * col.bounds.size.x * 2f); ;
                     transform.Translate(Vector3.up * dirY * col.bounds.size.y * 2f);
                 }
+                break;
+
+            case "Enemy":
+                transform.position = GameManager.Instance.CurrentSpawner.points[Random.Range(1,GameManager.Instance.CurrentSpawner.points.Length)].transform.position;
                 break;
         }
     }

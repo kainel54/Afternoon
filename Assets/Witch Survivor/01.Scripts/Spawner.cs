@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private Transform[] points = null;
+    public Transform[] points = null;
 
     private void Awake()
     {

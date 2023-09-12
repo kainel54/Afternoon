@@ -87,11 +87,9 @@ public class Enemy : Poolable
 
     private void Doknockback(float distance = 2)
     {
-        Vector3 playerPosition =
-            GameManager.Instance.CurrentPlayer.transform.position;
+        Vector3 playerPosition = GameManager.Instance.CurrentPlayer.transform.position;
         Vector3 dirVector = transform.position - playerPosition;
-        rigid.AddRelativeForce(dirVector.normalized * distance,
-            ForceMode2D.Impulse);
+        rigid.AddRelativeForce(dirVector.normalized * distance,ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -105,5 +103,11 @@ public class Enemy : Poolable
             Damage(atk);
 
         }
+    }
+
+    public override void Release()
+    {
+        transform.position = Vector3.zero;
+        base.Release();
     }
 }
