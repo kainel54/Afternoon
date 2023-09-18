@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Enemy : Poolable
 {
@@ -27,8 +24,7 @@ public class Enemy : Poolable
 
     private void Start()
     {
-        target = GameManager.Instance.CurrentPlayer.
-            GetComponent<Rigidbody2D>();
+        target = GameManager.Instance.CurrentPlayer.GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -37,24 +33,24 @@ public class Enemy : Poolable
         {
             return;
         }
-        target = GameManager.Instance.CurrentPlayer.
-            GetComponent<Rigidbody2D>();
+
+        target = GameManager.Instance.CurrentPlayer.GetComponent<Rigidbody2D>();
         health = enemyData.maxHealth;
         speed = enemyData.speed;
     }
-
     private void FixedUpdate()
     {
         if (target == null)
         {
             return;
         }
-        dirVector = target.position - rigid.position;
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
         {
             return;
         }
+
+        dirVector = target.position - rigid.position;
 
         float xScale = dirVector.x < 0 ? -1f : 1f;
         transform.localScale = new Vector3(xScale, 1f, 1f);
@@ -65,9 +61,8 @@ public class Enemy : Poolable
 
     public void Damage(Attack atk)
     {
-        health -= atk.weaponData.atkDamage;
-
-        StartCoroutine(KnockBack(atk.weaponData.knockBack));
+        health -= atk.currentSkill.atk;
+        StartCoroutine(Knockback(atk.currentSkill.knockback));
 
         if (health > 0f)
         {
@@ -79,29 +74,28 @@ public class Enemy : Poolable
         }
     }
 
-    private IEnumerator KnockBack(float knockback)
+    private IEnumerator Knockback(float knockback)
     {
         yield return wait;
-        Doknockback(knockback);
+        DoKnockback(knockback);
     }
 
-    private void Doknockback(float distance = 2)
+    private void DoKnockback(float distance = 2f)
     {
         Vector3 playerPosition = GameManager.Instance.CurrentPlayer.transform.position;
         Vector3 dirVector = transform.position - playerPosition;
-        rigid.AddRelativeForce(dirVector.normalized * distance,ForceMode2D.Impulse);
+        rigid.AddRelativeForce(dirVector.normalized * distance, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Attack"))
+        if (collision.gameObject.CompareTag("Attack"))
         {
             Attack atk = collision.GetComponent<Attack>();
 
             if (atk == null) return;
 
             Damage(atk);
-
         }
     }
 
