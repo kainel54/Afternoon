@@ -32,6 +32,7 @@ public class SkillData
 {
     public Rarity Rarity;
     public AttackPatturn pattern;
+    public string objId;
     public float atk;
     public float coolTime;
     public float range;

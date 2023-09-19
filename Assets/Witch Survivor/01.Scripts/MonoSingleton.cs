@@ -29,10 +29,5 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         destroyed = true;
     }
-
-    private void OnDestroy()
-    {
-        destroyed = true;
-    }
 }
 
