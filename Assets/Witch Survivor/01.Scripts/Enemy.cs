@@ -72,6 +72,7 @@ public class Enemy : Poolable
         {
             Release();
         }
+
     }
 
     private IEnumerator Knockback(float knockback)

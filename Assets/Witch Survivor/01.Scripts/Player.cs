@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        animator.SetFloat("speed", moveDirection.magnitude);
+        animator.SetFloat("velocity", moveDirection.magnitude);
     }
 
     private void LateUpdate()
