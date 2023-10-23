@@ -14,12 +14,17 @@ public class Enemy : Poolable
 
     private Vector2 dirVector = Vector2.zero;
 
+    SpriteRenderer[] spriteRenderers;
+
     private WaitForFixedUpdate wait;
+
+    private bool isDead = false;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
     }
 
     private void Start()
@@ -49,6 +54,7 @@ public class Enemy : Poolable
         {
             return;
         }
+        if (isDead) return;
 
         dirVector = target.position - rigid.position;
 
@@ -70,7 +76,8 @@ public class Enemy : Poolable
         }
         else
         {
-            Release();
+            isDead = true;
+            StartCoroutine(Dead());
         }
 
     }
@@ -86,6 +93,13 @@ public class Enemy : Poolable
         Vector3 playerPosition = GameManager.Instance.CurrentPlayer.transform.position;
         Vector3 dirVector = transform.position - playerPosition;
         rigid.AddRelativeForce(dirVector.normalized * distance, ForceMode2D.Impulse);
+    }
+
+    private IEnumerator Dead()
+    {
+        animator.Play("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Release();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

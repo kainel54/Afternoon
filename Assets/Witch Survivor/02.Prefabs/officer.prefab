@@ -487,7 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
     speed: 1
-    maxHealth: 5
+    maxHealth: 20
     Exp: 1
 --- !u!114 &2349733354020126408
 MonoBehaviour:
